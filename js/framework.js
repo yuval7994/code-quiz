@@ -5,6 +5,8 @@ var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var startButton = document.getElementById("start");
 var currentQuestion = 0;
+var timeLeft = 60;
+
 startButton.addEventListener("click", function(event){
     event.preventDefault();
     questionDisplay();
@@ -18,7 +20,6 @@ function startQuiz() {
     getQuestion();
   }
   function countdown() {
-    var timeLeft = 60;
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
       // As long as the `timeLeft` is greater than 1
@@ -63,7 +64,7 @@ function correctAnswer(chosen){
     //check if user got wrong or correct answer
     if (chosen !== questions[currentQuestion].answer){
         // subtract time
-        time -= 5;
+        timeLeft -= 5;
     } else {
     }
 }
@@ -71,6 +72,13 @@ startButton.onclick = startQuiz;
 startButton.addEventListener("click", function(event){
     countdown();
 })
+
+
+
+
+
+
+
 
 
 
