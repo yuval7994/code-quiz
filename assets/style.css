@@ -1,27 +1,32 @@
 body {
     font-family: "Verdana", Sans-serif;
   }
-  .main {
+
+.main {
     margin: 100px auto 0 auto;
     max-width: 600px;
   }
-  .hide {
+
+.hide {
     display: none;
   }
-  .start {
+
+.start {
     text-align: center;
   }
-  .scores {
+
+.scores {
     position: absolute;
     top: 10px;
     left: 10px;
   }
-  .timer {
+
+.timer {
     position: absolute;
     top: 10px;
     right: 10px;
   }
-  button {
+button {
     display: inline-block;
     margin: 5px;
     font-family: "Verdana", Sans-serif;
@@ -33,6 +38,15 @@ body {
     border: 0;
     transition: background-color 0.1s;
   }
+
+.questions {
+    padding-left: 0px;
+    max-height: 400px;
+    overflow: auto;
+    padding: 5px;
+    list-style-type: decimal;
+ }
+
   input[type="text"] {
     font-size: 100%;
   }
