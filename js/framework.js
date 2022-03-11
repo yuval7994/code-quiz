@@ -5,10 +5,12 @@ var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var startButton = document.getElementById("start");
 var currentQuestion = 0;
+
 startButton.addEventListener("click", function(event){
     event.preventDefault();
     questionDisplay();
 })
+
 function startQuiz() {
     // hide start screen
     var startScreenEl = document.getElementById("start-screen");
@@ -17,6 +19,7 @@ function startQuiz() {
     questionsEl.removeAttribute("class");
     getQuestion();
   }
+
   function countdown() {
     var timeLeft = 60;
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -41,6 +44,7 @@ function startQuiz() {
       }
     }, 1000);
   }
+  
 // displays the question and answers
 function questionDisplay(){
     questionEl.innerText = questions[currentQuestion].title;
