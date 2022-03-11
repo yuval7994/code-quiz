@@ -7,18 +7,24 @@ var startButton = document.getElementById("start");
 var currentQuestion = 0;
 var timeLeft = 60;
 var time = questions.length * 5;
+var timeInterval; 
+
 startButton.addEventListener("click", function (event) {
   event.preventDefault();
+  startQuiz()
   questionDisplay();
 });
+
 function startQuiz() {
   // hide start screen
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
+
   // un-hide questions section
   questionsEl.removeAttribute("class");
-  getQuestion();
+  countdown();
 }
+
 function countdown() {
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
@@ -42,9 +48,10 @@ function countdown() {
     }
   }, 1000);
 }
+
 function quizEnd() {
   // stop timer
-  clearInterval(timerId);
+  clearInterval(timeInterval);
   // show end screen
   var endScreenEl = document.getElementById("end-screen");
   endScreenEl.removeAttribute("class");
@@ -54,14 +61,17 @@ function quizEnd() {
   // hide questions section
   questionsEl.setAttribute("class", "hide");
 }
+
 // displays the question and answers
 function questionDisplay() {
-  questionEl.innerText = questions[currentQuestion].title;
-  choicesEl.innerHTML = "";
   if (currentQuestion === questions.length) {
     // end quiz
     quizEnd();
   }
+  questionEl.innerText = questions[currentQuestion].title;
+  choicesEl.innerHTML = "";
+  
+
   for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
     // declaring the answer button
     var answerButton = document.createElement("button");
@@ -76,6 +86,7 @@ function questionDisplay() {
     });
   }
 }
+
 function correctAnswer(chosen) {
   //check if user got wrong or correct answer
   if (chosen !== questions[currentQuestion].answer) {
@@ -83,17 +94,9 @@ function correctAnswer(chosen) {
     timeLeft -= 5;
   } else {
   }
+
+  // local storage 
+  localStorage.setItem("lastname", "firstname");
+
 }
-startButton.onclick = startQuiz;
-startButton.addEventListener("click", function (event) {
-  countdown();
-});
-
-
-
-
-
-
-
-
 
