@@ -1,3 +1,4 @@
+
 // declaration variables
 var questionEl = document.getElementById("question-title");
 var questionsEl = document.getElementById("questions");
@@ -6,10 +7,6 @@ var choicesEl = document.getElementById("choices");
 var startButton = document.getElementById("start");
 var currentQuestion = 0;
 
-startButton.addEventListener("click", function(event){
-    event.preventDefault();
-    questionDisplay();
-})
 
 function startQuiz() {
     // hide start screen
@@ -19,7 +16,6 @@ function startQuiz() {
     questionsEl.removeAttribute("class");
     getQuestion();
   }
-
   function countdown() {
     var timeLeft = 60;
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -44,7 +40,7 @@ function startQuiz() {
       }
     }, 1000);
   }
-  
+
 // displays the question and answers
 function questionDisplay(){
     questionEl.innerText = questions[currentQuestion].title;
@@ -73,5 +69,8 @@ function correctAnswer(chosen){
 }
 startButton.onclick = startQuiz;
 startButton.addEventListener("click", function(event){
-    countdown();
+    event.preventDefault();
+    questionDisplay();
+    countdown(); 
 })
+
