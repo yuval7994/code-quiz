@@ -47,6 +47,7 @@ function questionDisplay(){
     for (let i = 0; i < questions[currentQuestion].choices.length; i++){
         // declaring the answer button
         var answerButton = document.createElement("button");
+        answerButton.setAttribute("class", "choice");
         answerButton.innerText = questions[currentQuestion].choices[i];
         choicesEl.appendChild(answerButton);
         // displays the next question upon click
