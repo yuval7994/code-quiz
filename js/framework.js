@@ -11,7 +11,7 @@ var timeLeft = 60;
 
 //var time = questions.length * 15;
 var timeInterval;
-
+const HS = JSON.parse(localStorage.getItem("score")) || []
 //highscore variables
 var highscoresEl = document.getElementById("highscores");
 var highscores = [0,0,0,0];
@@ -73,60 +73,21 @@ function quizEnd() {
 function highScoreDisplay() {
   highscoresEl.removeAttribute("class");
   endScreenEl.setAttribute("class", "hide");
-  highscore1.textContent = highscores[0] +" "+ highscoreNames[0];
-  highscore2.textContent = highscores[1] +" "+ highscoreNames[1];
-  highscore3.textContent = highscores[2] +" "+ highscoreNames[2];
-  highscore4.textContent = highscores[3] +" "+ highscoreNames[3];
-}
-//updates high score board function
-var recordScore = function(){
-  var workingScore = yourScoreHere.textContent;
-  var workingScore = parseInt(workingScore);
-  var boardUpdated = false
-
-  if (workingScore > highscores[3]){
-      if (workingScore > highscores[2]){
-          if (workingScore > highscores[1]){
-              if (workingScore > highscores[0]){
-                  highscores[3] = highscores[2];
-                  highscoreNames[3] = highscoreNames[2];
-                  highscores[2] = highscores[1];
-                  highscoreNames[2] = highscoreNames[1];
-                  highscores[1] = highscores[0];
-                  highscoreNames[1] = highscoreNames[0];
-                  highscores[0] = workingScore;
-                  highscoreNames[0] = playerName;
-                  boardUpdated = true;
-               }
-              else {
-                  highscores[3] = highscores[2];
-                  highscoreNames[3] = highscoreNames[2];
-                  highscores[2] = highscores[1];
-                  highscoreNames[2] = highscoreNames[1];
-                  highscores[1] = workingScore;
-                  highscoreNames[1] = playerName;
-                  boardUpdated = true
-              }  
-          }
-          else {
-              highscores[3] = highscores[2];
-              highscoreNames[3] = highscoreNames[2];
-              highscores[2] = workingScore;
-              highscoreNames[2] = playerName; 
-          }
-      }
-      else {
-          highscores[3] = workingScore;
-          highscoreNames[3] = playerName;
-      }
+  for(let i = 0; i < HS.length; i++){
+    highscoresEl.innerHTML += `<li>${HS[i]}</li`
   }
-highScoreDisplay();
 }
+
+
 submitButton.addEventListener("click", function (event) {
-  event.preventDefault();
-  //
-  highScoreDisplay();
+    event.preventDefault();
+
+    HS.push(playerscore)
+
+    localStorage.setItem("score", JSON.stringify(HS))
+    highScoreDisplay(); 
 });
+
 // displays the question and answers
 function questionDisplay() {
   if (currentQuestion === questions.length) {
@@ -135,7 +96,9 @@ function questionDisplay() {
   }
   if (time <= 0) {
     quizEnd();
+  }else{
   }
+
   questionEl.innerText = questions[currentQuestion].title;
   choicesEl.innerHTML = "";
  
