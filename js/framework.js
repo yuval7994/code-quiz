@@ -6,7 +6,7 @@ var choicesEl = document.getElementById("choices");
 var submitButton = document.getElementById("submit");
 var startButton = document.getElementById("start");
 var doneButton = document.getElementById("done");
-var endScreenEl = document.getElementById("end-screen");
+var endScreenEl = document.getElementById("end-screen")
 var currentQuestion = 0;
 var timeLeft = 60;
 
@@ -81,6 +81,7 @@ function quizEnd() {
 }
 function highScoreDisplay() {
   highscoresEl.removeAttribute("class");
+  highscoresbtnEl.setAttribute("class");
   endScreenEl.setAttribute("class", "hide");
   for(let i = 0; i < HS.length; i++){
     highscoresEl.innerHTML += `<li>${HS[i]}</li`
