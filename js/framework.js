@@ -103,11 +103,10 @@ function questionDisplay() {
     // end quiz
     quizEnd();
   }
-  if (time <= 0) {
+  else if (time <= 0) {
     quizEnd();
   }else{
-  }
-
+  
   questionEl.innerText = questions[currentQuestion].title;
   choicesEl.innerHTML = "";
  
@@ -123,6 +122,7 @@ function questionDisplay() {
       currentQuestion++;
       questionDisplay();
     });
+  }
   }
 }
 function correctAnswer(chosen) {
