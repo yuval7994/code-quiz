@@ -6,8 +6,8 @@ var choicesEl = document.getElementById("choices");
 var submitButton = document.getElementById("submit");
 var startButton = document.getElementById("start");
 var doneButton = document.getElementById("done");
-var endScreenEl = document.getElementById("end-screen")
-var highscoresBtnEl = document.getElementById("done-button")
+var endScreenEl = document.getElementById("end-screen"); 
+var highscoresBtnEl = document.getElementById("highscoresbtn"); 
 var currentQuestion = 0;
 var timeLeft = 60;
 
