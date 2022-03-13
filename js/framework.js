@@ -82,7 +82,7 @@ function quizEnd() {
 }
 function highScoreDisplay() {
   highscoresEl.removeAttribute("class");
-  highscoresbtnEl.removeAttribute("class");
+  highscoresBtnEl.removeAttribute("class");
   endScreenEl.setAttribute("class", "hide");
   for(let i = 0; i < HS.length; i++){
     highscoresEl.innerHTML += `<li>${HS[i]}</li`
