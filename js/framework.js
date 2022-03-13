@@ -7,7 +7,7 @@ var submitButton = document.getElementById("submit");
 var startButton = document.getElementById("start");
 var doneButton = document.getElementById("done");
 var endScreenEl = document.getElementById("end-screen")
-var highscoresBtnEl = document.getElementById("finish")
+var highscoresBtnEl = document.getElementById("done-button")
 var currentQuestion = 0;
 var timeLeft = 60;
 
