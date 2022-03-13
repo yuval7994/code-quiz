@@ -7,6 +7,7 @@ var submitButton = document.getElementById("submit");
 var startButton = document.getElementById("start");
 var doneButton = document.getElementById("done");
 var endScreenEl = document.getElementById("end-screen")
+var highscoresBtnEl = document.getElementById("finish")
 var currentQuestion = 0;
 var timeLeft = 60;
 
@@ -81,7 +82,7 @@ function quizEnd() {
 }
 function highScoreDisplay() {
   highscoresEl.removeAttribute("class");
-  highscoresbtnEl.setAttribute("class");
+  highscoresbtnEl.removeAttribute("class");
   endScreenEl.setAttribute("class", "hide");
   for(let i = 0; i < HS.length; i++){
     highscoresEl.innerHTML += `<li>${HS[i]}</li`
