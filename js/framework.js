@@ -5,9 +5,11 @@ var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var submitButton = document.getElementById("submit");
 var startButton = document.getElementById("start");
+var doneButton = documet.getElementById("done");
 var endScreenEl = document.getElementById("end-screen");
 var currentQuestion = 0;
 var timeLeft = 60;
+
 
 //var time = questions.length * 15;
 var timeInterval;
@@ -25,6 +27,11 @@ startButton.addEventListener("click", function (event) {
   event.preventDefault();
   startQuiz();
   questionDisplay();
+doneButton.addEventListener("click", function (event) {
+  event.preventDefault(); 
+  startQuiz();
+}
+
 });
 function startQuiz() {
   playerscore = 0;
