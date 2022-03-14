@@ -6,7 +6,6 @@ var choicesEl = document.getElementById("choices");
 var submitButton = document.getElementById("submit");
 var startButton = document.getElementById("start");
 var endScreenEl = document.getElementById("end-screen");
-var doneButtonEl = document.getElementById("done");
 var currentQuestion = 0;
 var timeLeft = 60;
 
@@ -29,11 +28,6 @@ startButton.addEventListener("click", function (event) {
   questionDisplay();
 }); 
 
-doneButtonEl.addEventListener("click" , function (event) {
-  event.preventDefault();
-  startScreenEl(); 
-
-}); 
 
 
 function startQuiz() {
